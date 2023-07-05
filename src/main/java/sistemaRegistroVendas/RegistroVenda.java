@@ -92,9 +92,9 @@ if (!verificarCadastro(venda.getCliente().getCpf()) && !verificarCadastro(venda.
 
             for (Venda v : vendas) {
                 System.out.println("nome do cliente: " + v.getCliente().getNome());
-                System.out.println("nome do vendedor / a: " + v.getVendedor().getNome());
-                System.out.println("Valor da venda: " + v.getValorASerPago());
-                System.out.println("data da compra: " + v.getDataRegistro());
+                System.out.println("vendedor responsável: " + v.getVendedor().getNome());
+                System.out.println("valor da venda: " + v.getValorASerPago());
+                System.out.println("data da venda: " + v.getDataRegistro());
             }
 }
 

@@ -47,6 +47,6 @@ public class Venda {
 
     @Override
     public String toString() {
-        return "Nome do cliente: " + cliente.getNome() + " Nome do vendedor responsável: " + vendedor.getNome() + " data da venda: " + dataRegistro.toString();
+        return "Nome do cliente: " + getCliente().getNome() + " Nome do vendedor responsável: " + getVendedor().getNome() + " data da venda: " + getDataRegistro().toString();
     }
 }
