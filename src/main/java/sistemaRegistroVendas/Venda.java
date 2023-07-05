@@ -3,7 +3,7 @@ package sistemaRegistroVendas;
 import java.time.LocalDate;
 
 public class Venda {
-    private Pessoa pessoa;
+
     private  Cliente cliente;
     private Vendedor vendedor;
     private double valorASerPago;
@@ -16,9 +16,6 @@ public class Venda {
         this.dataRegistro = LocalDate.now();
     }
 
-    public Pessoa getPessoa() {
-        return pessoa;
-    }
 
     public LocalDate getDataRegistro() {
         return dataRegistro;

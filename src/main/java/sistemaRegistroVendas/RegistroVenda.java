@@ -17,46 +17,38 @@ List<Vendedor> vendedores = new ArrayList<>();
     Venda venda1 = new Venda(joao, maria, 100.0, LocalDate.now());
 
     public void adicionarCliente(Cliente cliente){
-        if (cliente.validarEmail(cliente.getEmail()) && autenticarCpf(cliente.getCpf()) && !verificarCadastro(cliente.getCpf())) {
-            clientes.add(cliente);
+
+        if (cliente.validarEmail(cliente.getEmail()) && !verificarCadastro(cliente.getCpf())) {
+            this.clientes.add(cliente);
+this.pessoas.add(cliente);
             System.out.println("cliente cadastrado");
         } else {
-            System.out.println("email ou cpf inválido!");
+            throw new IllegalStateException("email ou cpf inválido!");
+
         }
     }
+
     public void adicionarVendedor(Vendedor vendedor){
-        if (vendedor.validarEmail(vendedor.getEmail()) && !verificarCadastro(vendedor.getCpf())){
-            vendedores.add(vendedor);
+        if (vendedor.validarEmail(vendedor.getEmail()) && !verificarCadastro(vendedor.getCpf())) {
+
+            this.vendedores.add(vendedor);
+       this.pessoas.add(vendedor);
+            System.out.println("vendedor cadastrado");
         } else {
-            System.out.println("email inválido!");
+
+
+            throw new IllegalStateException("não foi possível cadastrar esse vendedor");
         }
     }
-    public boolean autenticarCpf(String cpf){
-        for (Pessoa p: pessoas){
-            if (p.getCpf().equals(cpf)){
-                return  true;
-            }
-        }
-return false;
-    }
-
-    public void verificarRegistro(){
-        if (autenticarCpf(joao.getCpf()) && autenticarCpf(maria.getCpf())){
-            this.vendas.add(venda1);
-        } else {
-            System.out.println("cliente ou vendedor não cadastrados!");
-
-        }
 
 
 
-            }
 
-            public void listarCompras(Cliente cliente){
-                System.out.println("compras do cliente " + cliente.getNome() + ":");
+
+            public void listarClientesCadastrados(Cliente cliente){
                 for (Venda venda: vendas){
                    if (venda.getCliente().equals(cliente)){
-                       System.out.println(venda.toString());
+                       System.out.println("nome do cliente: " + cliente.getNome() + " email do cliente: " + cliente.getEmail());
                    }
 
                 }
@@ -86,16 +78,24 @@ public boolean verificarCadastro(String cpf){
         return  false;
 }
 public void adicionarVenda(Venda venda){
-        vendas.add(venda);
+
+if (!verificarCadastro(venda.getCliente().getCpf()) && !verificarCadastro(venda.getVendedor().getCpf())){
+
+
+    vendas.add(venda);
+
+    System.out.println("venda cadastrada com sucesso!");
+}
 }
 
-public void listarVendas() {
+        public void listarVendas() {
 
-    for (Venda v : vendas) {
-        System.out.println(v.toString());
-
-
-    }
+            for (Venda v : vendas) {
+                System.out.println("nome do cliente: " + v.getCliente().getNome());
+                System.out.println("nome do vendedor / a: " + v.getVendedor().getNome());
+                System.out.println("Valor da venda: " + v.getValorASerPago());
+                System.out.println("data da compra: " + v.getDataRegistro());
+            }
 }
 
     public void listarClienteCadastrado(){
@@ -104,7 +104,7 @@ public void listarVendas() {
         for (Cliente c: clientes){
             System.out.println("nome do cliente: " + c.getNome());
             System.out.println("email do cliente: " + c.getEmail());
-            System.out.println("cpf do cliente: " + c.getCpf());
+
             System.out.println();
         }
 
