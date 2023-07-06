@@ -91,25 +91,14 @@ if (!verificarCadastro(venda.getCliente().getCpf()) && !verificarCadastro(venda.
         public void listarVendas() {
 
             for (Venda v : vendas) {
-                System.out.println("nome do cliente: " + v.getCliente().getNome());
-                System.out.println("vendedor responsável: " + v.getVendedor().getNome());
-                System.out.println("valor da venda: " + v.getValorASerPago());
-                System.out.println("data da venda: " + v.getDataRegistro());
+                System.out.println(v);
             }
-}
-
-    public void listarClienteCadastrado(){
-        System.out.println("Clientes cadastrados:");
-
-        for (Cliente c: clientes){
-            System.out.println("nome do cliente: " + c.getNome());
-            System.out.println("email do cliente: " + c.getEmail());
-
-            System.out.println();
         }
-
-    }
-
+public void listarClienteCadastrado(){
+        for (Cliente cliente: clientes){
+            System.out.println(cliente);
+        }
+}
         public void listarVendedorCadastrado(){
             System.out.println("vendedores cadastrados:");
         for (Vendedor vendedor: vendedores){

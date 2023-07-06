@@ -69,22 +69,20 @@ public class Principal {
                     break;
                 case 4:
                     registro.listarClienteCadastrado();
-
                     break;
                 case 5:
 
                     registro.listarVendedorCadastrado();
                     break;
                 case 6:
-
-                    registro.listarVendas();
+                  registro.listarVendas();
                     break;
                 case 7:
                     System.out.println("digite o cpf do cliente: ");
                     String cpfBuscaCliente = sc.next();
                     Cliente clienteBuscado = registro.buscarCliente(cpfBuscaCliente);
                     if (clienteBuscado != null) {
-                        registro.listarClientesCadastrados(clienteBuscado);
+                        System.out.println(clienteBuscado);
                     } else {
                         System.out.println("cliente não cadastrado!");
                     }
@@ -95,7 +93,7 @@ public class Principal {
                     String buscaEmailVendedor = sc.next();
                     Vendedor buscarVendedorEmail = registro.buscarVendedorEmail(buscaEmailVendedor);
                     if (buscarVendedorEmail != null) {
-                        registro.listarVendedorCadastrado();
+                        System.out.println(buscarVendedorEmail);
                     } else {
                         System.out.println("vendedor não cadastrado!");
                     }

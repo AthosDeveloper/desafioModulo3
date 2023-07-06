@@ -5,4 +5,8 @@ public class Vendedor extends Pessoa{
         super(nome, email, cpf);
     }
 
+    @Override
+    public String toString() {
+        return "nome do vendedor: " + this.getNome() + " email do vendedor: " + this.getEmail();
+    }
 }
